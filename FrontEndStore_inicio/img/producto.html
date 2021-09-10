@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Store</title>
+    <!-- Se define el normalize que es el que nos ayuda para que todo el proyecto se acople a los diferentes dispositivos mobiles-->
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="<link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <!-- Luego se definen las fuentes y la hoja de estilos de Css -->
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header class="header">
+        <!--aqui es donde definimos que la imagen principal al darle click va a ser retorno para el usuario para regresar al inicio se la pagina web-->
+    <a href="index.html"> <!-- Esto es un Enlace-->
+        <img class="header__logo" src="/img/logo.png" alt="Logotipo"> 
+    <!--las etiquetas de imagenes requieren de un atributo oobligario se le agrega algo que se conoce como el texto alternativo por lo tanto se le agrega un alt="Logotipo"-->
+        <!-- en caso que por un error de sintaxis no cargue la imagen va a cargar ese texto alternativo -->
+    </a>
+    </header>
+    <nav class="navegacion">   <!-- Para crear dos enlaces se usa "a*2" y enter-->
+        <!--estoy utilizando la clase enlace pero para convertirlo en modificador se le pone navegacion__enlace--activo-->
+        <a class="navegacion__enlace navegacion__enlace--activo" href="index.html">Tienda</a> <!-- con esto redirigimos a la pagina tienda utilizando el href="index.html" -->
+        <a class="navegacion__enlace" href="nosotros.html">Nosotros</a> <!-- con esto redirigimos a la pagina nosotros utilizando el href="nosotros.-->
+        
+    </nav>
+
+    <main class="contenedor">
+        <h1>ReactJS</h1>
+        <!-- Este div con la clase camisa contendra la descripcion del  producto -->
+         
+    <div class="camisa">
+        <!-- este div contiene la imagen del producto de la camisa 
+        con la clase camisa__imagen se hace referencia desde la hoja de estilos de css-->
+        <img class="camisa__imagen" src="/img/3.jpg" alt="Imagen del producto!"> 
+        <div class="camisa__contenido">
+            <!-- Este div contiene la descripcion del producto con la clase camisa__contenido se va a referenciar para su uso en la hoja de estilo de css-->  
+            <p>
+                essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+                
+                <form class="formulario">
+        <!--formulario se usa para sacar ese recuadro que se usa para seleccionar las tallas se utiliza la clase formulario para referenciarlo desde la hoja de estilos de CSS-->
+                <select class="formulario__campo"> 
+        <!-- A este formulario se le asigna una clase llamada formulario__campo para ahorrar codigo se le referencia para su uso en la hoja de estilos de CSS  -->
+        <!-- al primer option se le coloca el disabled para que no se pueda seleccionar ya que no es una talla y no se puede seguir esa orden ya que se utiliza como un mensaje para el usuario se utiliza como un letrero practicamente  -->
+        <option disabled selected>-- Seleccionar Talla --</option>
+        <!-- Selected se utiliza para que sea el primero en mostrarse en el recuadro y que no se muestre primero el option "talla Chica" Estos se les llama atributos (Disabled y selected)-->
+                      <option>Chica </option> 
+                      <option>Mediana </option>
+                      <option>Grande</option>
+                </select>
+        <!-- Aqui se define el recuadrp de cantidad con un input -->
+        <!-- lleva un atributo de nombre Min=1 quiere decir que el usuario no puede seleccionar menos de 1 camisas por ejemplo no se podria seleccionar 0 o -1,-2,-3 etc  -->
+                <input class="formulario__campo" type="number" placeholder="Cantidad" min="1">  
+        <!-- Este input de tipo SUBMIT se va a ejecutar cuando se llene el formulario y se manden esos datos a un servidor   -->
+                <input class="formulario__submit" type="submit" value="Agregar al carrito">  
+                </form>
+            </div>
+    </div>
+    </main>
+    
+    <footer class="footer">
+         <p class="footer__texto">
+             Frontend Store - Todos los Derechos Reservados 2021 
+         </p>
+    </footer>
+    
+</body>
+</html>

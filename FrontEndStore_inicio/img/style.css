@@ -1,0 +1,312 @@
+:root{
+    --primario: #9C27B0;
+    --primarioOscuro: #89119d;
+    --secundario: #ffce00;
+    --secundarioOscuro:rgba(243, 193, 14, 0.897);
+    --blanco: #fff;
+    --negro: #000;
+    /* Aqui terminan los colores que se definen para que aplique a toda la estructura */
+    --fuentePrincipal: /*font-family:*/ 'Staatliches', cursive;
+    /*aqui las reglas de la fuente se ponen aqui por que si queremos cambiar la fuente solo se hace este cambio de linea desde aqui y aplica para toda la pagina */
+     }
+/* Definimos los globales este snipet no debe de faltar en ningun proyecto el codigo de paulirish */
+html {
+     box-sizing: border-box;
+     /*Este font-size nos permite agregar que un rem es igual a 10 pixeles*/
+     font-size: 62.5%;
+      }
+     *, *:before, *:after {
+        box-sizing: inherit;
+    }
+/* Globales */
+body {
+    background-color: var(--primario); /*Fondo de color */
+    font-size: 1.6rem;          /*el tamaño de el texto*/
+     line-height: 1.5;     /*un interlineado a todo el proyecto*/
+}
+/* Se definen los parrafos */
+p {
+    font-size: 1.8;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+/*definimos que todos los enlaces no vana tener ese interlineado de la parte inferior*/
+a {
+text-decoration: none;
+}
+/*tambien vamos a seleccinar todas las imagenes! */
+img{
+    width: 100%;
+    border-radius: 1rem;
+}
+/*ahora le ponemos un contenedor*/
+.contenedor {
+    max-width: 120rem;
+     margin: 0 auto;
+      }
+/* procedemos a agregar los heddings */
+h1,h2,h3{
+    text-align: center; /*todos van a estar alineados al centro*/
+    /*todos van a tener el color secundario*/
+    color: var(--secundario);
+    /*y todos van a tener el font font-family que definimos como fuente principal*/
+    font-family: var(--fuentePrincipal);
+}
+/*despues vamos a definir los tamaños individualmente de cada uno*/
+h1{
+    font-size: 4rem;
+}
+h2{
+    font-size: 3.2rem;
+}
+h3{
+     font-size: 2.4rem;
+}
+/* Esto es el Header */
+.header{
+    display: flex;  /* Se utiliza el display flex para centrar la imagen de frontendStore*/
+     /*para centrarlo orizontalmente utilizamos justify-content */
+     justify-content: center;    
+    }
+     /*para la separacion de arriba seleccionamos header logo */
+.header__logo{
+     margin: 3rem 0;
+     /*el primer valor arriba y abajo y el segundo es para izquierda y derecha */
+}
+.footer{
+     color: var(--primarioOscuro);
+     padding: 1rem 0;
+     margin-top: 2rem; 
+     }
+.footer__texto{
+    font-family: var(--fuentePrincipal);
+     text-align: center;
+    font-size: 2.2rem;
+}
+/* Navegacion*/
+.navegacion{
+    background-color: var(--primarioOscuro) ;
+    /*le vamos a poner un padding: esto hace que se haga mas grande (1 rem arriba y abajo 0 a la iaquierda y derecha)*/
+    padding: 1rem 0;
+    /*para centrar vertical y horizontal un display flex y un justify content center*/
+    display: flex;
+    justify-content: center; 
+    gap: 2rem;  /*esto le da una separacion a tienda y a nosotros anteriormente se usaba " margin-right: 2rem; por problemas con algunos navegadores que aun no soportan gap se comenta esta linea "*/
+    }
+.navegacion__enlace{
+    /*se utliza la fuente pricncipal que declaramos al principio*/
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco); /*se le cambia el color*/
+    font-size: 3rem;    /*se le cambia el tamaño */
+   /* margin-right: 2rem;*/
+}
+/*.navegacion__enlace:last-of-type{ 
+    last of type siempre va a seleccionar el ultimo enlace es un pseudo selector
+     margin-right: 0 ; esto se utiliza para que al elemento se le aplique el margen 
+      esta es la forma antigua por compatibilidad se utiliza aunque se usara gap en este proyecto
+} */
+
+/*para que cada que ponga el cursor en las letras tienda y nosotros tenga ese efecto de que cambia de color a color amarillo ese efecto se agrega de la siguiente manera*/
+.navegacion__enlace--activo,/*esta--sintaxi--pertenece--a--BEM*/
+.navegacion__enlace:hover {
+    color: var(--secundario);
+}
+/* El grid va a pocicionar los productos (es decir las imagenes de las playeras ) */
+/* Grid */
+.grid{
+    /* si vas a pocisionar elementos hazlo con grid */
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    /* template columns se utiliza para decir cuantos recuadros quieres */
+    /*Para separarlos hay dos formas una de ellas es con estas dos lineas que estan comentadas */
+    /*column-gap: 2rem;
+    row-gap: 2rem;*/
+    /* ***************** esto se puede abreviar aqui se le esta dando la separacion de arriba hacia abajo e izquierda derecha*/
+    
+    /* con esta linea se abrevia el colimn gao y el row gap en una sola linea por cuestiones de compatibilidad checar cual usar */
+    gap: 2rem;
+    }
+
+@media (min-width: 768px){
+    /* Este media query se utiliza para que si el usuario esta viendo esto en un cel se hagan dos filas despues de 768 megapixeles se replieguen a tres columnas*/
+    .grid{
+    grid-template-columns: repeat(3,1fr);
+    }
+}  
+/* Productos */
+.producto {
+    background-color: var(--primarioOscuro);
+    padding:  1rem; /* Esto por que las imagenes se veian como hacia adentro con esto resaltan */  
+
+     
+}
+.producto__imagen{
+      /* esto para que la imagen abarque todo y se llenen los espacios */
+}
+.producto__informacion{
+     
+}
+.producto__nombre{
+    font-size: 4rem;
+}
+.producto__precio{
+    font-size: 2.8rem;
+    color: var(--secundario);
+    /* se le pone el color secundario al precio ya que es diferente al nombre de el producto y asi se diferencia mas */
+}
+.producto__nombre, .producto__precio{
+     font-family: var(--fuentePrincipal);
+     /* Aqui se aplica la fuente principal en las dos clases por eso se mandan a llamar para que aplique la fuente principal a las dos */
+     margin: 1rem 0;
+     /* igual se aplica para el margen a ambos */
+     text-align: center;
+     /*el text align center para mantener el texto centrado */
+    line-height: 1.2;
+    /* el line heigth es para el interlineado de las letras*/
+    }
+/* Graficos*/
+.grafico {
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-column: 1 / 3;
+    } 
+.grafico--camisas {
+    /*el row es de arriba a abajo las coordenadas se checan en el inspector de paginas para darle las pocision de donde lo queremos */
+    grid-row: 2 / 3 ;
+    background-image: url(../img/grafico1.jpg); /*con esto llamamos a nuestra imagen que se va a extender en dos cuadros del grid*/     
+}
+.grafico--node{
+    background-image: url(../img/grafico2.jpg);
+    grid-row: 8 / 9;
+
+}
+@media (min-width: 768px){
+       .grafico--node{
+        /* del 5 al 6 es e arriba hacia abajo perro */
+         grid-row: 5 / 6;
+         grid-column: 2 / 4; /*esto es de izquierda a derecha*/  
+         }
+}
+.grafico--node{
+    /* del 5 al 6 es e arriba hacia abajo perro */
+     grid-row: 5 / 6;
+     grid-column: 2 / 4; /*esto es de izquierda a derecha*/
+}
+/* Nosotros */ 
+.nosotros{
+    /* al ponerle un display grid podemos pocicionarlos grid*/
+    display: grid;
+    grid-template-rows: (2,1fr);
+     
+
+}
+/* con un media query para que se vea bien al momento de bajar la resolucion a un mobil*/
+@media (min-width: 768px ){
+    .nosotros{        
+        /* vamos a pedirle que nos cree dos columnas con la siguiente linea */
+        grid-template-columns: repeat(2,auto);
+        /*vamos a darle mayor tamaño con gap*/
+        column-gap: 2rem;
+         
+        }
+    
+}
+.nosotros__imagen{
+    /*con este grid row podemos pocicionar la imagen este display grid se declaro al principio en la clase .nosotros */
+    grid-row: 1 /2;
+     
+}
+@media (min-width: 768px) {
+     .nosotros__imagen {
+          /*para pocicionar por columna es decir de abajo hacia arriba se ocupa grid colimn*/
+          grid-column: 2 / 3;            
+     }
+}
+
+/* Bloques*/
+.bloques{
+    display: grid;
+    /* para tener dos columnas de una fraccion al hacer mas pequeña la pagina web para dispositivos mobiles se usa grid template columns*/
+    grid-template-columns:repeat(2, 1fr);  
+    /* Le agregamos un gap por que queremos que este la separacion en todo el grid */
+    gap: 2rem;
+}
+@media (min-width: 768px){
+    /*Aqui le vamos a decir que despues de 768 pixeles la pagina web va a desplegar cuatro columnas! */
+    .bloques{
+        grid-template-columns:repeat(4, 1fr); 
+    }
+}
+.bloque{
+ text-align: center; 
+ 
+} 
+.bloque__titulo{
+    margin: 0; 
+}  
+
+/* *********************************** */
+.descripcion{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2rem;
+}
+@media (min-width: 768px){
+    .descripcion{
+        font-size: 1.8rem;
+    }
+}
+ /* Pagina Del Producto */
+ /*hacemos un media query por que en dispositivos mobiles se mira bien pero en dispositivos de mayor resolucion es donde se mira una sola columna para eso se le pone el display grid y el ggrid template columns para decirle que al expandirse se le hagan dos filas */
+ @media (min-width: 768px) {
+     .camisa{
+         display: grid ;
+         grid-template-columns: repeat(2,1fr); 
+    /* Se utiliza column gap de nuevo para la separacion por que se mira todo junto */
+        column-gap: 2rem;
+     }      
+}
+.formulario{
+    display: grid;
+/*vamos a ponerle dos columnas y cada una va a tomar la mitad y la mitad */
+    grid-template-columns: repeat(2, 1fr);  
+/*añadimos separacion con el gap de 2 rem para que no este todo junto*/
+    gap: 2rem;
+}
+
+.formulario__campo{
+    /** se puede hacer asi indicando cada uno se los tres parametros que se le quieran asignar o se puede para ahorrar codigo hacer en una sola linea !
+    border-color: var(--primarioOscuro);
+    border-width: 1rem;
+    border-style: solid;
+     aqui podemos seguir en la siguiente linea como se puese ahorrar codigo la orden seria ancho tipo y color **/
+    border: 1rem solid var(--primarioOscuro);
+    background-color: transparent;
+    color: var(--blanco);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    /* se le agrega un padding para que sea un poco mas grande nuestro input */
+    padding: 1rem;
+    appearance: none; /*para quitar esa flecha hacia abajo que marca en el selector una forma de que se le puede dar estilos  */
+}
+.formulario__submit{
+            /* aqui le daremos estilo al boton de submit */
+    background-color: var(--secundario);
+            /* todos los inputs tienen un borde se lo quitamos con un bordernone*/
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    padding: 2rem;
+    /*posicionamos el boton "agregar al carrito"*/
+    grid-column:1 / 3;
+
+}
+            /* cada que le damos estilos a un submit (Siempre se va a perder) pierde la manita a la hora de pasar el mouse encima de el para regresarla se utiliza cursor pointer con el hover */
+.formulario__submit:hover{
+    cursor: pointer;  
+    background-color: var(--secundarioOscuro);
+
+      
+}
+
+ 
